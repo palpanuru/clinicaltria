@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://benchresources.in/cdm/ClinicalTrial" xmlns:tns="http://benchresources.in/cdm/ClinicalTrial"
+	elementFormDefault="qualified">
+
+	<!-- ClinicalTrial object with four attributes -->
+	<xsd:element name="ClinicalTrialType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="nctId" type="xsd:int" />
+				<xsd:element name="officialtitle" type="xsd:string" />
+				<xsd:element name="phase" type="xsd:string" />
+				<xsd:element name="primarycompletiondate" type="xsd:date" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- an object to contain lists of ClinicalTrials referencing above ClinicalTrial object -->
+	<xsd:element name="ClinicalTrialListType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="tns:ClinicalTrialType" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>
